@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation=" http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd http://www.springframework.org/schema/beans  
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context 
+ http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+  
+  <context:component-scan base-package="cv" />
+    <context:annotation-config />
+    <mvc:annotation-driven />
+  <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+
+    
+    <bean id="dbConnection" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+    <property name="url" value="jdbc:mysql://localhost:3306/cvcorp"></property>
+    <property name="username" value="root"></property>
+    <property name="password" value="shivudu3"></property>
+    </bean>
+    
+    <bean id="ds" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dbConnection"></property>
+    </bean>
+    
+    
+  
+  <bean id="reportDao" class="cv.dao.ReportDao">
+  <property name="template" ref="ds"></property>
+  
+  </bean>
+  
+   <bean id="studentService" class="cv.services.StudentService">
+   <property name="studentDao" ref="studentDao">
+   
+   </property>
+   <property name="questionPaperDao" ref="questionPaperDao"></property>
+   <property name="reportDao" ref="reportDao"></property>
+   <property name="studentInGameDao" ref="studentInGameDao"></property>
+   <property name="mailSender" ref="mailSender"></property>
+  
+   </bean> 
+   <bean id="studentInGameDao" class="cv.dao.StudentInGameDao">
+   </bean>
+   
+   <bean id="studentController" class="cv.controllers.StudentController">
+   <property name="studentService" ref="studentService"></property>
+    <property name="questionService" ref="questionService"></property>
+   </bean> 
+    <bean id="adminController" class="cv.controllers.AdminController">
+    <property name="adminService" ref="adminService"></property>
+    <property name="questionService" ref="questionService"></property>
+    <property name="questionPaperService" ref="questionPaperService"></property>
+    <property name="qaQuestionService" ref="qaQuestionService"></property>
+    <property name="batchService" ref="batchService"></property> 
+    
+    </bean>
+    
+    
+    <bean id="indexController" class="cv.controllers.IndexController">
+    <property name="batchService" ref="batchService"></property>
+    <property name="studentService" ref="studentService"></property>
+    <property name="adminService" ref="adminService"></property>
+    </bean>
+    
+    <bean id="batchService" class="cv.services.BatchService">
+    <property name="batchDao" ref="batchDao"></property>
+    </bean>
+    <bean id="batchDao" class="cv.dao.BatchDao">
+    <property name="template" ref="ds"></property>
+    </bean>
+    
+    <bean id="questionService" class="cv.services.QuestionService">
+    <property name="questionDao" ref="questionDao"></property>
+    </bean>
+    <bean id="questionDao" class="cv.dao.QuestionDao">
+    <property name="template" ref="ds"></property>
+    </bean>
+    <bean id="adminDao" class="cv.dao.AdminDao">
+    <property name="template" ref="ds"></property>    
+    </bean>
+    
+     <bean id="studentDao" class="cv.dao.StudentDao">
+    <property name="template" ref="ds"></property>    
+    </bean>
+    <bean id="adminService" class="cv.services.AdminService">
+    <property name="adminDao" ref="adminDao"></property>
+    <property name="studentDao" ref="studentDao"></property>
+    <property name="reportDao" ref="reportDao"></property>
+    <property name="mailSender" ref="mailSender"></property>
+    </bean>
+    
+    <bean id="questionPaperDao" class="cv.dao.QuestionPaperDao">
+    <property name="template" ref="ds"></property>
+    </bean>
+    
+    <bean id="questionPaperService" class="cv.services.QuestionPaperService">
+    <property name="questionPaperDao" ref="questionPaperDao">
+    </property>
+    <property name="reportDao" ref="reportDao"></property>
+    </bean>
+    
+    <bean id="qaQuestionService" class="cv.services.QAQuestionService">
+    <property name="qaQuestionDao" ref="qaQuestionDao"></property>
+    </bean>
+    
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.gmail.com" />
+	<property name="port" value="587" />
+	<property name="username" value="careervidhyaoperations@gmail.com" />
+	<property name="password" value="cvcorp2017" />
+
+	<property name="javaMailProperties">
+	   <props>
+       	      <prop key="mail.smtp.auth">true</prop>
+       	      <prop key="mail.smtp.starttls.enable">true</prop>
+       	   </props>
+	</property>
+    </bean>
+    
+    
+    <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="1000000" />
+
+	</bean>
+    
+    
+    <bean id="qaQuestionDao" class="cv.dao.QAQuestionDao">
+    <property name="template" ref="ds"></property>
+    </bean>
+    
+     <mvc:resources mapping="/resources/**" location="/resources/"/> 
+  </beans>

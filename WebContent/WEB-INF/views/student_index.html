@@ -1,0 +1,455 @@
+<html>
+<head>
+	<title>Student Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="styles/cvcorpCss.css">
+    <!--link rel="stylesheet" type="text/css" href="styles/navBarCss.css">-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="scripts/app.js"></script>
+    <script src="scripts/validation.js"></script>
+    <script src="scripts/ajaxCall.js"></script>
+    <script>
+        function formDisplay(elem)
+        {
+            if(elem.style.display=='block')
+                elem.style.display='none';
+            else
+                elem.style.display='block';
+        }
+		
+		function myFunction() {
+			var x = document.getElementById('qp1');
+			var y = document.getElementById('qp2');
+			if (x.style.display === 'none') {
+				x.style.display = 'block';
+				y.style.display = 'none';
+			} 
+			else
+			{
+				x.style.display = 'none';
+				y.style.display = 'none';
+			}
+		}
+		function myFunction1() {
+			var x = document.getElementById('qp1');
+			var y = document.getElementById('qp2');
+			if (y.style.display === 'none') {
+				y.style.display = 'block';
+				x.style.display = 'none';
+			} 
+			else
+			{
+				y.style.display = 'none';
+				x.style.display = 'none';
+			}
+		}
+	
+    </script>
+	<style>
+		
+	</style>
+</head>
+<body>
+<!-- header start-->
+<!--<div class="container-fluid">
+	<div style="width:100%;height: 30px;background-color:#00a69c">
+		
+	</div>
+    <div class="container-fluid firdiv">
+	    <div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-5" style="padding:0px;">
+				<!--<a href="admin_index.html" class="links"><img class="logo" src="images/cvcorpLogo.png"></a>
+			</div>
+			<div class="col-md-6 col-ms-6 col-xs-0"></div>
+			<div class="col-md-3 col-sm-3 col-xs-7">
+                <p style="color:red;text-align: left;margin-top:5%;">Welcome karunakar</p>
+				<!--<p style="float: left;"><i class="fa fa-power-off" style="color:#fff;" aria-hidden="true"></i><input type="button" style="color:#fff;background: transparent;border-color:transparent;" value="Logout"/></p>
+				<p><i class="fa fa-key" style="color:#fff;" aria-hidden="true"></i><input type="button" style="color:#fff;background: transparent;border-color:transparent;" value="ChangePassword"/></p>
+            </div>
+		</div>
+	</div>
+<!--header end
+</div>-->
+<!--section start-->
+<div class="container-fluid" style="width:100%;">
+		<!-- navbar start-->
+<nav class="navbar navbar-default navClass">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	  <!--<a href="student_index.html" class="navbar-brand"><img class="logo" src="images/cvcorpLogo.png"></a>-->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#" onclick="visibilityStd('home');"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+        <li><a href="#" onclick="visibilityStd('profile');"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+		<li><a href="#" onclick="visibilityStd('statistics');"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Statistics</a></li>
+		<li><a href="#" onclick="visibilityStd('multipleChoice');"><i class="fa fa-quora" aria-hidden="true"></i> Multiple Choice QP</a></li>
+		<li><a href="#" onclick="visibilityStd('theoreticQp');"><i class="fa fa-clipboard" aria-hidden="true"></i> Theoretic Qp</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+        <li><a href="#"></span><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+		<!-- navbar end-->
+</div>
+<div class="container-fluid rowClass">
+		<div class="row">
+			<!--<div class="col-sm-1 col-md-1 col-xs-0 newNavBar" style="height: 400px;border:1pxsolid red;">
+				<ul id="bars">
+						<li class="level-one" id="selected"><i class="fa fa-home iconsClass"></i>
+						<ul class="level-two">
+							<li class="liClass">Home<li/>
+						</ul>
+						</li> 
+						<li class="level-one"><i class="fa fa-beer iconsClass"></i>
+						<ul class="level-two">
+							<li class="liClass">Cheers!<li/>
+						</ul>
+						</li>
+							
+						<li class="level-one"><i class="fa fa-rocket iconsClass"></i>
+						<ul class="level-two">
+							<li class="liClass">Rocket!<li/>
+						</ul>
+						</li>
+							
+						<li class="level-one"><i class="fa fa-desktop iconsClass"></i>
+						<ul class="level-two">
+							<li class="liClass">Work!<li/>
+						</ul> 
+						</li>
+							
+						<li class="level-one"><i class="fa fa-print iconsClass"></i>
+						<ul class="level-two">
+							<li>Print!<li/>
+						</ul>  
+						</li>
+						
+						<li class="level-one"><i class="fa fa-power-off iconsClass"></i>
+						<ul class="level-two">
+							<li>Shut Down!<li/>
+						</ul> 
+						</li>
+						
+					</ul>
+			</div>-->
+
+				<div class="col-sm-12 col-md-12 col-xs-12">
+					<!-- student home start-->
+					<div class="row">
+						<div class="col-md-12">
+							<marquee class="marqueeClass">Your latest updates</marquee>
+						</div>
+					</div>
+					<div id="home" class="container-fluid homeClass">
+						<div class="row">
+							<i class="fa fa-refresh fa-spin fa-3x fa-fw" style="float:left;"></i>
+							<p class="subHeadText">Attendance & Performance</p>
+							<div class="col-md-5 col-sm-5 col-xs-12">
+								<canvas id="myChart" class="sampleCharts"></canvas>
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-0">
+								<div class="lineClass"></div>
+								<hr class="hrLineForMob">
+							</div>
+							<div class="col-md-5 col-sm-5 col-xs-12">
+								<canvas id="myBarChart" class="sampleCharts"></canvas>
+							</div>
+						</div>
+					</div>
+			<!-- student home end-->
+
+			<!-- student profile start-->
+			<div id="profile" style="display: none;">
+                <div class="row profileRow">
+					<i class="fa fa-refresh fa-spin fa-3x fa-fw" style="float:left;"></i>
+					<p class="subHeadText">Student Profile</p>
+                    <div class="col-md-2 col-sm-2 col-xs-12" style="">
+                        <div class="card">
+                            <img src="images/img_avatar2.png" class="cardPhoto" alt="Avatar" style="width:100%">
+                            <div class="container-fluid" style="text-align:center;">
+                                <h4><strong>Balu</strong></h4> 
+                                <p>Student</p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-6 personalDetails">
+                        <div class="container-fluid">
+                                <p class="profilePara">Student ID <span style="float: right;">:</span></p>
+                                <p class="profilePara">Full Name <span style="float: right;">:</span></p>
+                                <p class="profilePara">Father Name <span style="float: right;">:</span></p>
+                                <p class="profilePara">Mobile <span style="float: right;">:</span></p>
+                                <p class="profilePara">Parent Mobile <span style="float: right;">:</span></p>
+                                <p class="profilePara">Email <span style="float: right;">:</span></p>
+                                <p class="profilePara">Gender <span style="float: right;">:</span></p>
+                        </div>
+                    </div>
+					<div class="col-md-3 col-sm-3 col-xs-6 personalDetails">
+						<div class="container-fluid">
+							<p class="proParaText" id="stdId">101</p>
+							<p class="proParaText" id="stdName">Gollapally karunakar</p>
+							<p class="proParaText" id="stdFname">yadagiri</p>
+							<p class="proParaText" id="stdMob">8897574902</p>
+							<p class="proParaText" id="stdParentMob">8897574902</p>
+							<p class="proParaText" id="stdMail">karnakar.g27@gmail.com</p>
+							<p class="proParaText" id="stdGender">Male</p>
+						</div>
+					</div>
+                    <div class="col-md-2 col-sm-2 col-xs-6 personalDetails">
+                        <div class="container-fluid">
+                            <p class="profilePara">Batch no <span style="float: right;">:</span></p>
+                            <p class="profilePara">Fee Paid <span style="float: right;">:</span></p>
+                            <p class="profilePara">Fee Due <span style="float: right;">:</span></p>
+							<p class="profilePara">City <span style="float: right;">:</span></p>
+							<p class="profilePara">State <span style="float: right;">:</span></p>
+                        </div>
+                    </div>
+					<div class="col-md-3 col-sm-3 col-xs-6 personalDetails">
+						<div class="container-fluid">
+							<p class="proParaText" id="stdBatch">1</p>
+							<p class="proParaText" id="stdFeePaid">10000</p>
+							<p class="proParaText" id="stdFeeDue">0</p>
+							<p class="proParaText" id="stdFeeDue">Gajwel</p>
+							<p class="proParaText" id="stdFeeDue">Telangana</p>
+						</div>
+					</div>
+                </div>
+            </div>
+			<!-- student profile end-->
+
+			<!-- Statistics start-->
+			<div id="statistics" style="display: none;">
+                <div class="row statisticsRow">
+                    <div class="col-md-5 col-sm-5 col-xs-12 scrollClass">
+                        <div class="row">
+							<i class="fa fa-refresh fa-spin fa-3x fa-fw" style="float:left;"></i>
+							<p class="subHeadText">Student statistics</p>
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+							<div class="col-md-5 col-sm-5 col-xs-12 testResultBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">View result</button>
+							</div>
+						</div>
+						
+                    </div>
+					<div class="col-md-1 col-sm-1 col-xs-0">
+						<div class="lineClass"></div>
+						<hr class="hrLineForMob">
+					</div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <canvas id="myPieChart" style="width:0%;height: 0px !important;"></canvas><br>
+                    </div>
+                </div>
+            </div>
+			<!-- statistics end-->
+
+
+
+
+            <!-- Multiple choice test start-->
+			<div id="multipleChoice" style="display: none;">
+				<div class="row statisticsRow">
+                    <div class="col-md-3 col-sm-3 col-xs-12 scrollClass">
+                        <div class="row">
+							<i class="fa fa-refresh fa-spin fa-3x fa-fw" style="float:left;"></i>
+							<p class="subHeadText">Take your test</p>
+							<div class="col-md-12 col-sm-12 col-xs-12 takeTestBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">Take test</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12 takeTestBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">Take test</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12 takeTestBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">Take test</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12 takeTestBox">
+								<p class="testClass" style="padding-top:2%;"><i class="fa fa-book" style="margin-right:1.5%;" aria-hidden="true"></i>Test name : <span style="font-weight: 500" id="tname">test1</span></p>
+								<p class="testClass"><i class="fa fa-calendar-o" style="margin-right:1.5%;" aria-hidden="true"></i>Written on : <span style="font-weight: 500" id="tdate">20/06/2017</span></p>
+								<p class="testClass"><i class="fa fa-male" style="margin-right:1.5%;" aria-hidden="true"></i>Conducted by : <span style="font-weight: 500" id="tCunduncted">shivakumar</span></p>
+								<p class="testClass"><i class="fa fa-clock-o" style="margin-right:1.5%;" aria-hidden="true"></i> Duration :<span style="font-weight: 500" id="tduration">3m</span></p>
+								<button onclick="" class="viewResBtn">Take test</button>
+							</div>
+						</div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12 scrollClass">
+						<div class="row">
+							<div class="col-md-8 col-xs-12">
+								<p class="noteClass">NOTE : Don't refresh before you finish the exam</p>
+							</div>
+							<div class="col-md-4 col-xs-12" style="position: fixed;right:50;display: block;">
+								<i class="fa fa-clock fa-spin fa-3x fa-fw" style="float:left;"></i>
+								<p class="timeText" style="border:1px solid red;"><i class="fa fa-clock-o timeIcon"></i>Time :<span id="examTime"></span></p>
+								
+							</div>
+						</div>
+						<div class="row" style="border:1px solid #4e4e4e;height: 500px;">
+							<div class="col-md-12">
+								
+							</div>
+						</div>
+
+                    </div>
+                </div>
+			</div>
+			<!-- Multiple choice test end-->
+			
+
+
+
+			
+			<!-- theoretic test start-->
+			<div id="theoreticQp" style="display: none;">
+				<div class="row statisticsRow">
+					<i class="fa fa-refresh fa-spin fa-3x fa-fw" style="float:left;"></i>
+					<p class="subHeadText">Take your theoretical test</p>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+					<form>
+						<ol type="1">
+							<li style="">What do you know about Java? </li>
+							<div class="form-group" id="qp1" style="display:none;margin-top:1%;">
+									<div class="col-md-12 col-sm-12">
+										<textarea name="tanswer" class="form-control" style="height: 150px !important;" id="tanswer" placeholder="Write your answer" rows="20" id="comment"></textarea>
+									</div>
+							</div>
+							<li style="margin-top:3% !important;">What are the supported platforms by Java Programming Language?</li>
+							<div class="form-group" id="qp2" style="display:none;margin-top:1%;">
+									<div class="col-md-12 col-sm-12">
+										<textarea name="tanswer" class="form-control" style="height: 150px !important;" id="tanswer" placeholder="Write your answer" rows="20" id="comment"></textarea>
+									</div>
+							</div>
+						</ol>
+					</form>
+					</div>
+					<p class="subHeadText">Answer</p>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+						
+						<ol type="1">
+							<li><i class="fa fa-angle-double-right" onclick="myFunction()" aria-hidden="true"></i></li>
+							<li><i class="fa fa-angle-double-right" onclick="myFunction1()" aria-hidden="true"></i></li>
+						</ol>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-4">
+						
+					</div>
+				</div>
+			</div>
+			<!-- theoretic test end-->
+		</div>
+	</div>
+</div>
+
+<!--footer strat-->
+<div class="container-fluid footerDiv">
+	<div class="row">
+		<div class="col-md-12">
+			<p class="footers" style="color:#fff;">@CVCORPCopyRightsReserved</p>
+		</div>
+	</div>
+</div>
+<!-- footer end-->
+<br>
+<a style="color:#000;" href="/CareerVidhya_Operations/createQuestionPaper"></a>
+<br><br>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Aug 17, 2017 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("examTime").innerHTML =minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("examTime").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+<script src="scripts/charts.js"></script>
+</body>
+</html>

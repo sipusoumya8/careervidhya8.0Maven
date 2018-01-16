@@ -1,0 +1,148 @@
+body
+{
+	font-family:"loto" san-serif;
+}
+
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important; 
+    margin-right: auto;
+    margin-left: auto;
+}
+.row
+{
+	padding:0px !important;
+	margin:0px !important;
+}
+
+
+
+
+.new
+{
+	font-size:14px;
+	padding-left:1%;
+	float:left !important;
+	text-align:center;
+}
+
+
+.spanSpace
+{
+	padding-left:1%;
+}
+
+.innerdiv
+{
+	height:250px;
+	background-color:#323e60;
+	width:1px;
+	margin:auto;
+	margin-top:18%;
+	
+	
+}
+.email
+{
+	margin:2%;
+	float:right;
+	width:90%;
+	height:30px;
+	border-top:none;
+	border-left:none;
+	border-right:none;
+	border-bottom:1px solid #4e4e4e;
+}
+.sideSpace
+{
+	margin-right:9%;
+}
+
+.forgot
+{
+	float:right;
+}
+.frgtSpace
+{
+	padding-right:5%;
+}
+
+.halfdiv
+{
+	height:382px;
+	width:100%;
+}
+.end
+{
+	text-align:right;
+	color:#000;
+	padding-top:2%;
+	padding-right:10%;	
+}
+.para
+{
+	font-size:30px;
+	text-align:center;
+}
+.newstudent
+{
+	size:15px;
+	color:#323e60;
+}
+@media only screen and (max-width:768px)
+	{
+		
+		
+		
+		.forgot
+		{
+			font-size:10px;
+		}
+		.me
+		{
+			font-size:10px;
+		}
+		.remember
+		{
+			padding-left:0px;
+		}
+		.innerdiv
+		{
+			height:1px;
+			background-color:#323e60;
+			width:100%;
+			margin-top:10px;
+			margin-left:0px;
+		}
+		.name
+		{
+			font-size:10px;
+		}
+		
+		.students
+		{
+			
+			margin-left:50px;
+			margin-top:20px;
+			font-size:20px;
+			font-family:calibri;
+			color:F44336;
+		}
+		.halfdiv
+		{
+			height:530px;
+		}
+		.end
+		{
+			text-align:center;
+			color:white;
+			padding-top:20px;
+			font-size:10px;
+		}
+		.para
+		{
+			font-size:15px;
+		}	
+
+		
+	}

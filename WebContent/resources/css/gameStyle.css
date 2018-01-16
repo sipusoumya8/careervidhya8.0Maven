@@ -1,0 +1,62 @@
+#games
+{
+  background-color: #c0dfd9;
+  display:none;
+  height:600px;
+  width:100%;
+}
+
+.gameHead{
+	
+}
+
+.gameBtn{
+	top:4%;
+	border-radius:50% !important;
+	padding:20px !important;
+	background-color:#000;
+	color:#fff;
+}
+.gameBody{
+	background-color:#fff;
+	border-radius:5%;
+	height:300px;
+	padding:55px;
+	text-align:center;
+	
+}
+
+.numberGame{
+	border-radius:50%;
+	border:1px solid #000;
+	text-align:center;
+    padding:33px;
+    box-shadow: 1px 1px 1px 1px #00a69c;
+	font-size: 43px;
+    font-family: monospace;
+    color: #f66;
+}
+
+.hintGame{
+	    font-size: 30px;
+    color: #31708f;
+    font-family: monospace;
+}
+
+#userAnswer
+{
+	    border: 2px solid #000;
+    height: 40px;
+    font-size: 25px;
+    font-family: cursive;
+    text-align: center;
+    
+}
+
+
+.gameLoader{
+
+	width:50px;
+	height:50px;
+}
+
