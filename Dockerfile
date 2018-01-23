@@ -5,4 +5,6 @@ From tomcat:8-jre8
 MAINTAINER "Rajkiran <rajkiran@cvcorp.in>"
 
 # Copy to images tomcat path
-ADD CareerVidhya_Operations8.0-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+ADD target/*.war /usr/local/tomcat/webapps/
+
+EXPOSE 4545
