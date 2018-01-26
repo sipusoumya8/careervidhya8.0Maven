@@ -15,7 +15,7 @@ ADD ./target/*.war /var/tmp/webapp
 RUN cd /var/tmp/webapp && ls  -al
 RUN cp -r /var/tmp/webapp/* /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
 
-EXPOSE 8080
+EXPOSE 8585
 
 CMD ["./var/tmp/tomcat/apache-tomcat-8.5.27/bin/catalina.sh","run"]
 
