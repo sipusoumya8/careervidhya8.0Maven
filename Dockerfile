@@ -13,7 +13,7 @@ RUN mkdir /var/tmp/webapp
 #RUN cd /var/tmp/webapp && mvn package && cp /var/tmp/webapp/target/CIJD.war /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
 ADD ./target/*.war /var/tmp/webapp
 RUN cd /var/tmp/webapp && ls  -al
-RUN cp -r /var/tmp/webapp/* /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
+RUN cp -apr /var/tmp/webapp/* /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
 
 EXPOSE 8585
 
