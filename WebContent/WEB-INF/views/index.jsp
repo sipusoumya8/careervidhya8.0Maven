@@ -146,7 +146,7 @@
 			<div class="container-fluid footerDivIndex">
 			    <div class="row">
 			        <div class="col-md-12">
-			            <p class="footersIndex" style="color:#fff;">@CVCORPCopyRightsReserved</p>
+			            <p class="footersIndex" style="color:#fff;">@CVCORP CopyRightsReserved</p>
 			        </div>
 			    </div>
 			</div>
