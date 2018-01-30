@@ -12,8 +12,8 @@ RUN mkdir /var/tmp/webapp
 #ADD ./ /var/tmp/webapp
 #RUN cd /var/tmp/webapp && mvn package && cp /var/tmp/webapp/target/CIJD.war /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
 ADD ./target/*.war /var/tmp/webapp
-ADD ./java-maven/context.xml /var/
-ADD ./java-maven/tomcat-users.xml /var/
+ADD ./context.xml /var/
+ADD ./tomcat-users.xml /var/
 RUN cd /var/tmp/webapp && ls  -al
 RUN cp -aprf /var/context.xml /var/tmp/tomcat/apache-tomcat-8.5.27/webapps/manager/META-INF
 RUN cp -aprf /var/context.xml   /var/tmp/tomcat/apache-tomcat-8.5.27/conf
