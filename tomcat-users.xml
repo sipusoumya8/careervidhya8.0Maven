@@ -1,0 +1,44 @@
+  1 <?xml version="1.0" encoding="UTF-8"?>
+  2 <!--
+  3   Licensed to the Apache Software Foundation (ASF) under one or more
+  4   contributor license agreements.  See the NOTICE file distributed with
+  5   this work for additional information regarding copyright ownership.
+  6   The ASF licenses this file to You under the Apache License, Version 2.0
+  7   (the "License"); you may not use this file except in compliance with
+  8   the License.  You may obtain a copy of the License at
+  9
+ 10       http://www.apache.org/licenses/LICENSE-2.0
+ 11
+ 12   Unless required by applicable law or agreed to in writing, software
+ 13   distributed under the License is distributed on an "AS IS" BASIS,
+ 14   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ 15   See the License for the specific language governing permissions and
+ 16   limitations under the License.
+ 17 -->
+ 18 <tomcat-users xmlns="http://tomcat.apache.org/xml"
+ 19               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 20               xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+ 21               version="1.0">
+ 22 <!--
+ 23   NOTE:  By default, no user is included in the "manager-gui" role required
+ 24   to operate the "/manager/html" web application.  If you wish to use this app,
+ 25   you must define such a user - the username and password are arbitrary. It is
+ 26   strongly recommended that you do NOT use one of the users in the commented out
+ 27   section below since they are intended for use with the examples web
+ 28   application.
+ 29 -->
+ 30 <!--
+ 31   NOTE:  The sample user and role entries below are intended for use with the
+ 32   examples web application. They are wrapped in a comment and thus are ignored
+ 33   when reading this file. If you wish to configure these users for use with the
+ 34   examples web application, do not forget to remove the <!.. ..> that surrounds
+ 35   them. You will also need to set the passwords to something appropriate.
+ 36 -->
+ 37
+ 38   <role rolename="manger-gui"/>
+ 39   <role rolename="manager-script"/>
+ 40
+ 41   <user username="tomcat" password="root123" roles="manager-gui"/>
+ 42   <user username="root" password="root123" roles="manager-script"/>
+ 43   <user username="raj" password="root123" roles="manager-gui"/>
+ 44   </tomcat-users>
