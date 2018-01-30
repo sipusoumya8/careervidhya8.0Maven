@@ -16,7 +16,7 @@ ADD ./context.xml /var/
 ADD ./tomcat-users.xml /var/
 RUN cd /var/tmp/webapp && ls  -al
 RUN cp -aprf /var/context.xml /var/tmp/tomcat/apache-tomcat-8.5.27/webapps/manager/META-INF
-RUN cp -aprf /var/context.xml   /var/tmp/tomcat/apache-tomcat-8.5.27/conf
+RUN cp -aprf /var/tomcat-users.xml   /var/tmp/tomcat/apache-tomcat-8.5.27/conf
 RUN cp -apr /var/tmp/webapp/* /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
 
 EXPOSE 8585
