@@ -73,7 +73,7 @@
 		<div class="container-fluid">
 			<div class="row secdiv">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<p class="welcomeNote">Welcome to CareerVidhya</p>
+					<p class="welcomeNote">Welcome To CareerVidhya</p>
 				</div>
 			</div>
 		</div>

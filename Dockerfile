@@ -1,8 +1,22 @@
-# Pull base image
-From tomcat:8-jre8
+FROM java:8
+MAINTAINER Rajkiran "rajkiran@cvcorp.in"
 
-# Maintainer
-MAINTAINER "Rajkiran <rajkiran@cvcorp.in>"
 
-# Copy to images tomcat path
-ADD CareerVidhya_Operations8.0-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
+#tomcat
+RUN mkdir /var/tmp/tomcat
+RUN wget -P /var/tmp/tomcat http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.27/bin/apache-tomcat-8.5.27.tar.gz
+RUN tar xzf /var/tmp/tomcat/apache-tomcat-8.5.27.tar.gz -C /var/tmp/tomcat
+RUN rm -rf /var/tmp/tomcat/apache-tomcat-8.5.27.tar.gz
+
+RUN mkdir /var/tmp/webapp
+#ADD ./ /var/tmp/webapp
+#RUN cd /var/tmp/webapp && mvn package && cp /var/tmp/webapp/target/CIJD.war /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
+ADD ./target/*.war /var/tmp/webapp
+RUN cd /var/tmp/webapp && ls  -al
+RUN cp -apr /var/tmp/webapp/* /var/tmp/tomcat/apache-tomcat-8.5.27/webapps
+
+EXPOSE 8585
+
+CMD ["./var/tmp/tomcat/apache-tomcat-8.5.27/bin/catalina.sh","run"]
+
+#RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
